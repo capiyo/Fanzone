@@ -1,0 +1,84 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:background="@drawable/back"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_width="50dp"
+        app:civ_border_color="@color/crimson"
+        app:layout_constraintTop_toTopOf="parent"
+        app:civ_border_width="3dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/accountImage"
+        android:src="@mipmap/iconia"
+        android:layout_marginLeft="10dp"
+        android:layout_height="50dp"/>
+    <TextView
+        android:id="@+id/accountName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@+id/accountImage"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/username"
+        android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/accountTell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@+id/accountName"
+        android:text="@string/username"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/favTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/accountTell"
+        android:text="Manchester United"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/favclubl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@+id/favTeam"
+        android:text="@string/username"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black"/>
+    <Button
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="8sp"
+        android:layout_marginTop="10dp"
+        android:background="@color/crimson"
+        app:layout_constraintTop_toBottomOf="@+id/favclubl"
+        android:text="Message"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black"/>
+    <Button
+        android:id="@+id/invite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="8sp"
+        android:layout_marginTop="10dp"
+        android:background="@color/crimson"
+        app:layout_constraintTop_toBottomOf="@+id/favclubl"
+        android:text="Bet Invite"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

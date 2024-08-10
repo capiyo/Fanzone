@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="1dp"
+        app:cardCornerRadius="1dp"
+        android:background="@drawable/backa"
+        app:cardMaxElevation="1dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/chatRelative"
+        android:background="@drawable/backa"
+        android:layout_height="match_parent">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_width="40dp"
+            app:civ_border_color="@color/best"
+            app:civ_border_width="2dp"
+            android:id="@+id/chatImage"
+            android:src="@mipmap/iconia"
+            android:layout_marginLeft="10dp"
+            android:layout_height="40dp"/>
+
+    <TextView
+        android:id="@+id/chatusername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/usernam"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="50dp"-->
+<!--        android:fontFamily="sans-serif-black"-->
+<!--        android:text="@string/app_name"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="17sp" />-->
+
+    <TextView
+        android:id="@+id/chatclub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/chatusername"
+        android:text="@string/club"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/chatphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chatusername"
+        android:layout_marginStart="50dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/phone"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/chatnational"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:textAlignment="textEnd"
+        android:layout_marginEnd="60dp"
+        android:text="@string/txtNational"
+        android:layout_toEndOf="@id/chatclub"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/chatstatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/chatphone"
+        android:layout_below="@id/chatnational"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/online"
+        android:textColor="@color/dorgerblue"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/chatnotification"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/white"
+        android:text="@string/message" />
+
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
+

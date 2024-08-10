@@ -1,0 +1,33 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+	<item
+		android:id="@+id/search"
+		android:title="@string/search"/>
+	<item
+		android:id="@+id/bets"
+		android:title="@string/my_bets"/>
+
+	<!--	<item-->
+	<!--        android:id="@+id/settings"-->
+	<!--        android:title="@string/settings"/>-->
+	<!--	<item-->
+	<!--        android:id="@+id/theme"-->
+	<!--        android:title="@string/dark_theme"/>-->
+	<item
+		android:id="@+id/profile"
+		android:title="@string/update_profile"/>
+	<item
+		android:id="@+id/topup"
+		android:title="@string/topup"/>
+	<!--	<item-->
+	<!--        android:id="@+id/video"-->
+	<!--        android:title="@string/post_video"/>-->
+	<!--	<item-->
+	<!--        android:id="@+id/image"-->
+	<!--        android:title="@string/postphoto"/>-->
+	<item
+		android:id="@+id/logout"
+		android:title="@string/logout"/>
+
+</menu>

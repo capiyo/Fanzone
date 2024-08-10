@@ -1,0 +1,58 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/emptyCard"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="10dp"
+
+        app:cardBackgroundColor="@color/white"
+        app:cardMaxElevation="2dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/noBets"
+            android:layout_marginTop="100dp"
+
+            android:textSize="20sp"
+            android:textColor="@color/crimson"
+            android:padding="10dp"
+            android:text="NO BETS,,Pledge bets in games folde"
+            android:background="@drawable/buttona"
+
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="OKAY"
+            android:background="@drawable/buttona"
+            android:id="@+id/okay"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="100dp"
+            android:padding="10dp"
+            android:textColor="@color/crimson"
+            android:textSize="15sp"
+            android:layout_height="wrap_content"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/archiveRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+	/>
+
+</FrameLayout>

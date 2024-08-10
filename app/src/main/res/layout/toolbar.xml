@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@drawable/tooler"
+    >
+<RelativeLayout
+    android:layout_width="230dp"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We love sports"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/topupAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_below="@+id/appName"
+
+        android:textColor="@color/black"
+        android:text="@string/add_funds"
+
+        />
+
+
+    <TextView
+        android:id="@+id/withdraw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/withdraw"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/topupAcc"/>
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:hint="Search"
+        android:textColorHint="@color/white"
+        android:textColorHighlight="@color/white"
+        android:layout_below="@+id/withdraw"
+        android:textColor="@color/white"
+
+        />
+
+    <TextView
+        android:id="@+id/searchTv"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@id/search"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/withdraw"
+        android:background="@drawable/baseline_image_search_24"
+        android:textSize="14sp" />
+
+
+
+
+</RelativeLayout>
+    <RelativeLayout
+        android:visibility="gone"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/usernam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/username"
+            android:textColor="@color/dorgerblue" />
+
+
+
+
+
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/toolbarImage"-->
+        <!--            android:layout_width="50dp"-->
+        <!--            android:layout_height="50dp"-->
+        <!--            android:background="@drawable/circle"-->
+
+        <!--            />-->
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:orientation="vertical">
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_width="40dp"
+        app:civ_border_color="@color/crimson"
+        app:civ_border_width="1dp"
+        android:id="@+id/toolbarImage"
+        android:src="@mipmap/iconia"
+        android:layout_marginLeft="10dp"
+        android:layout_height="40dp"/>
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:layout_alignParentEnd="true"
+        android:text="@string/username"
+        android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_alignParentEnd="true"
+            android:text="Notifications"
+            android:textColor="@color/crimson" />
+        <TextView
+            android:id="@+id/accountbalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_alignParentEnd="true"
+            android:text="Ksh: 0.0"
+            android:textColor="@color/crimson" />
+
+    </LinearLayout>
+
+
+
+
+
+
+</androidx.appcompat.widget.Toolbar>
+

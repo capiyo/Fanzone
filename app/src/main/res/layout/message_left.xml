@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:layout_width="30dp"
+       
+        android:id="@+id/showStatus"
+		android:background="@drawable/finder"
+		
+        
+        
+        android:layout_height="30dp"/>
+	<TextView
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:visibility="gone"
+
+        android:paddingRight="10dp"
+        android:fontFamily="sans-serif-black"
+        android:paddingLeft="10dp"
+		android:layout_toRightOf="@id/showStatus"
+
+        android:background="@drawable/message_left"
+        android:text="hellooo capiyo"
+        android:id="@+id/dUsername"
+
+        android:layout_height="wrap_content"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:visibility="gone"
+
+        android:paddingRight="10dp"
+        android:fontFamily="sans-serif"
+        android:paddingLeft="10dp"
+		android:layout_marginTop="10dp"
+		android:layout_toRightOf="@id/showStatus"
+		android:layout_below="@id/dUsername"
+       
+        android:background="@drawable/message_left"
+        android:text="hellooo capiyo"
+        android:id="@+id/showMessage"
+      
+        android:layout_height="wrap_content"/>
+	<TextView
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        android:visibility="gone"
+
+        android:paddingRight="10dp"
+        android:fontFamily="sans-serif"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/message_right"
+        android:text="hellooo capiyo"
+        android:id="@+id/time"
+        android:layout_marginRight="50dp"
+        android:layout_height="wrap_content"/>
+
+    
+
+
+
+
+
+</RelativeLayout>

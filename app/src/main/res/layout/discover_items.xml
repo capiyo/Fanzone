@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    tools:context="ke.co.capiyo.fanzone.MainActivity"
+    android:layout_height="match_parent">
+
+	<ImageView
+		android:layout_width="30dp"
+		android:layout_height="30dp"
+		
+	
+		android:id="@+id/accountImageview"
+		android:background="@drawable/finder"
+		
+	
+	/>
+	<TextView
+		android:fontFamily="sans-serif"
+		android:layout_width="wrap_content"
+		android:id="@+id/videoItemsUsername"
+		android:layout_marginLeft="10dp"
+		android:text="@string/app_name"
+		android:layout_toRightOf="@id/accountImageview"
+		android:textSize="10sp"
+		android:textColor="@color/black"
+		android:layout_height="wrap_content"/>
+	<TextView
+		android:fontFamily="sans-serif"
+		android:layout_width="wrap_content"
+		android:layout_below="@id/videoItemsUsername"
+		android:text="@string/app_name"
+		android:textSize="17sp"
+		android:layout_toRightOf="@id/accountImageview"
+		android:id="@+id/videoItemsphone"
+		android:layout_marginTop="10dp"
+		android:textColor="@color/black"
+		android:layout_height="wrap_content"/>
+
+
+
+
+	<TextView
+		android:layout_marginTop="70dp"
+		android:layout_width="match_parent"
+		android:text="capiyo"
+		android:textSize="10sp"
+		android:textColor="@color/black"
+		android:fontFamily="sans-serif"
+		android:id="@+id/videoMessage"
+		android:layout_marginLeft="20dp"
+		android:layout_height="30dp"/>
+
+    <VideoView
+		android:layout_width="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/videoview"/>
+       
+	<TextView
+		android:layout_marginTop="30dp"
+		android:layout_width="60dp"
+		android:id="@+id/comment"
+		android:layout_marginBottom="20dp"
+		android:layout_alignParentBottom="true"
+		android:layout_marginLeft="150dp"
+		android:background="@drawable/buttona"
+		android:layout_height="60dp"/>
+	<TextView
+		android:layout_width="60dp"
+		android:layout_alignParentBottom="true"
+		android:id="@+id/openMessaging"
+		android:layout_marginBottom="20dp"
+		android:layout_alignParentRight="true"
+		android:layout_marginRight="20dp"
+		android:background="@drawable/friends"
+		android:layout_height="60dp"/>
+    <TextView
+        android:fontFamily="sans-serif"
+        android:layout_width="wrap_content"
+        android:textSize="50sp"
+        android:layout_marginLeft="20dp"
+        android:text="0"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/counter"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:layout_height="7dp"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:background="@color/dorgerblue"
+        android:layout_alignParentBottom="true"
+        android:layout_height="2dp"/>
+
+
+
+
+</RelativeLayout>

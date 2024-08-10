@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/overCar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/gray"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="2dp"
+    app:cardMaxElevation="2dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/main"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/biggie"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imagerh"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="2dp"
+            app:cardMaxElevation="2dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <ImageView
+                android:id="@+id/imager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/iconiak"
+                android:visibility="gone" />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/myRelativePA"
+        android:layout_width="300dp"
+        android:layout_height="135dp">
+        <TextView
+            android:id="@+id/counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+
+            android:background="@drawable/buttona"
+            android:layout_marginTop="20dp"
+            android:text="8  Comments"
+            android:textAlignment="center"
+
+            android:textSize="8sp" />
+
+        <TextView
+            android:id="@+id/invite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+
+            android:background="@drawable/buttona"
+            android:layout_marginTop="20dp"
+            android:text="Invite Bet"
+            android:layout_alignParentRight="true"
+            android:textAlignment="center"
+
+            android:textSize="8sp" />
+
+
+
+
+
+
+
+
+
+
+        <!--    <TextView-->
+        <!--        android:id="@+id/usernam"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginStart="50dp"-->
+        <!--        android:fontFamily="sans-serif-black"-->
+        <!--        android:text="@string/app_name"-->
+        <!--        android:textColor="@color/black"-->
+        <!--        android:textSize="17sp" />-->
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/poolImage"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/iconia"
+            app:civ_border_color="@color/best"
+            app:civ_border_width="3dp" />
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/poolImage"
+            android:fontFamily="sans-serif"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/club"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phone"
+            android:layout_marginStart="50dp"
+            android:text="@string/club"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username"
+            android:layout_marginStart="50dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/phone"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="6dp"
+            android:visibility="gone"
+            android:layout_toEndOf="@id/phone"
+            android:text="@string/online"
+            android:textColor="@color/dorgerblue"
+            android:textSize="11sp" />
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/club"
+
+            android:text="@string/txtNational"
+            android:textSize="12sp" />
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>
+

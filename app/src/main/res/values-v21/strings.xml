@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Fanzone</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="my_bets">My Bets</string>
+    <string name="logout">Logout</string>
+    <string name="settings">Settings</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="update_profile">Post News</string>
+    <string name="post_video">Post Video</string>
+    <string name="postphoto">PostPhoto</string>
+
+</resources>

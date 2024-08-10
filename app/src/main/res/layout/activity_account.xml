@@ -1,0 +1,84 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_width="50dp"
+        app:civ_border_color="@color/crimson"
+        app:layout_constraintTop_toTopOf="parent"
+        app:civ_border_width="3dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/accountImage"
+        android:src="@mipmap/iconia"
+        android:layout_marginLeft="10dp"
+        android:layout_height="50dp"/>
+    <TextView
+        android:id="@+id/accountName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/accountImage"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/username"
+        android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/accountTell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/accountName"
+        android:text="@string/username"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/balanceacc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/accountTell"
+        android:text="Balance: Ksh 0.00"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/favTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/balanceacc"
+        android:text="Manchester United"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/favclubl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/favTeam"
+        android:text="@string/username"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Update Profile"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/crimson"
+        app:layout_constraintTop_toBottomOf="@id/accountTell"
+        android:id="@+id/profilerUpdate"
+        android:textSize="12sp"
+
+
+
+        android:layout_height="wrap_content"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
