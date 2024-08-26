@@ -1,45 +1,21 @@
 package ke.co.capiyo.fanzone;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-import   android.text.TextUtils;
-import  androidx.databinding.BaseObservable;
-import androidx.databinding.Bindable;
+public class AppViewModela extends ViewModel {
 
-import ke.co.capiyo.fanzone.Models.View;
+    private MutableLiveData<String>  hisId=new MutableLiveData<String >() ;
 
-public class AppViewModela extends  BaseObservable{
-
-    public View models;
-
-    @Bindable
-    public  String getxUserid(){
-        return  models.getUserId();
-
+    public void setNameData(String  data){
+        hisId.setValue(data);
     }
-    public  void  setxUserid(String userid){
-        models.setUserId(userid);
-        notifyPropertyChanged(BR.xUserid);
 
+    public  LiveData<String>  getData(){
+
+        return  hisId;
     }
 
 
-
-
-
-    public  void  onButtonClicked(){
-        if(isValid()){
-
-        }
-
     }
-    public  boolean isValid(){
-        return !TextUtils.isEmpty(getxUserid());
-    }
-
-
-    public AppViewModela(){
-        models=new View("");
-    }
-
-
-}

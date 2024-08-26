@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_back"
     android:orientation="vertical"
 
-    tools:context="ke.co.capiyo.fanzone.co.capiyo.fanzone.Register">
+    tools:context="ke.co.capiyo.fanzone.Register">
 
     <TextView
         android:layout_width="match_parent"

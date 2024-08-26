@@ -74,7 +74,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyViewHo
         holder.myAmount.setText("Ksh " + pending.getMyAmount());
         holder.hisAmount.setText("Ksh " + pending.getMyAmount());
 
-        if (pending.getMyTeam().equals("homeTeam")) {
+       if (pending.getMyTeam().equals("homeTeam")) {
             if (firebaseUser.getUid().equals(pending.getStarterId())) {
 
 
@@ -89,7 +89,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyViewHo
                 holder.awayTeam.setEnabled(false);
                 final String hisTeam = "awayTeam";
                 //holder.awayTeam.setClickable(false);
-                //getMyDetails(pending.getStarterId(),holder);
+                //getMyDetails(pending.getStarterId(),pending,holder);
 
 
             } else {
@@ -112,7 +112,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyViewHo
                 public void onClick(View v) {
                     final String hisTeam = "awayTeam";
                     amountDialogue(pending.getHomeTeam(), pending.getAwayTeam(), pending.getBetId(), hisTeam);
-                    //addFinisher(pending.getBetId(),hisTeam);
+                    addFinisher(pending.getBetId(),hisTeam);
 
 
                     //amountDialogue(homeTeam,awayTeam,gameId,myTeam);
@@ -121,7 +121,8 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyViewHo
             });
 
 
-        } else if (pending.getMyTeam().equals("awayTeam")) {
+        }
+       else if (pending.getMyTeam().equals("awayTeam")) {
             if (firebaseUser.getUid().equals(pending.getStarterId())) {
 
                 //getMyDetails(pending.getStarterId(),holder);
@@ -139,7 +140,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyViewHo
 
             } else {
                 holder.firstLinear.setVisibility(View.INVISIBLE);
-                gethisDetails(pending.getBetId(), pending.getStarterId(), holder);
+                //gethisDetails(pending.getBetId(), pending.getStarterId(), holder);
 
 
 //				holder.awayTeam.setBackgroundResource(R.drawable.friends);
@@ -182,20 +183,10 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyViewHo
 
 
 
-		/* holder.openMessaging.setOnClickListener(new View.OnClickListener() {
-		 @Override
-		 public void onClick(View v) {
-		 //Intent intent = new Intent(mContext, Messaging.class);
-		 //intent.putExtra("friendsId", myPosts.getUserid());
-		 //mContext.startActivity(intent);
 
 
-		 }
-
-		 });
-		 */
         // holder.counter.setText(myPosts.getCounter());
-        if (!pending.getStarterId().equals(firebaseUser.getUid())) {
+        /*if (!pending.getStarterId().equals(firebaseUser.getUid())) {
 
 
             holder.messaging.setOnClickListener(new View.OnClickListener() {
@@ -215,6 +206,11 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyViewHo
 
 
         }
+
+        */
+
+
+
 
     }
 
@@ -300,6 +296,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyViewHo
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 PoolModel myModel = snapshot.getValue(PoolModel.class);
+                assert myModel != null;
                 holder.hisName.setText(myModel.getUsername());
                 holder.hisPhone.setText(myModel.getPhone());
                 //counter++;
@@ -374,6 +371,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyViewHo
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 PoolModel myModel = snapshot.getValue(PoolModel.class);
+                assert myModel != null;
                 holder.myName.setText(myModel.getUsername());
 //                holder.myAmount.setText(myModel.getAm);
                 holder.myPhone.setText(myModel.getPhone());

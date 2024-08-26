@@ -3,6 +3,7 @@ package ke.co.capiyo.fanzone.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,7 @@ public class PoolAdapter extends RecyclerView.Adapter<PoolAdapter.MyViewHolder> 
     private DatabaseReference mUserReference;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
+    public Typeface tf,poppins;
 
 
     public PoolAdapter(Context context, List<Posts> modela) {
@@ -58,6 +60,9 @@ public class PoolAdapter extends RecyclerView.Adapter<PoolAdapter.MyViewHolder> 
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pool_items, parent, false);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        tf= Typeface.createFromAsset(mContext.getAssets(), "fonts/Sedan-Regular.ttf");
+        poppins= Typeface.createFromAsset(mContext.getAssets(), "fonts/Gilroy-Bold.ttf");
         return new MyViewHolder(view);
 
     }
@@ -66,10 +71,20 @@ public class PoolAdapter extends RecyclerView.Adapter<PoolAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final Posts model = modela.get(position);
+        holder.noteTv.setTypeface(tf);
+        holder.usernameTv.setTypeface(poppins);
         //  holder.notification.setChecked(true);
 //        holder.notification.setCheckMarkDrawable(R.drawable.finder);
 
         holder.clubTv.setText(model.getClub());
+        if(model.getCounter().equals("1")){
+            holder.counterTv.setText("1  comment");
+        }
+        else {
+            holder.counterTv.setText(model.getCounter()+ "  comments");
+
+
+        }
 //////        holder.myAmount.setText(myModel.get);
         //holder.nationalTv.setText(model.getNational());
         if(model.getMessage().isEmpty()){
@@ -80,6 +95,14 @@ public class PoolAdapter extends RecyclerView.Adapter<PoolAdapter.MyViewHolder> 
         holder.phoneTv.setText(model.getPhone());
         if(model.getImageUrl().isEmpty()){
             holder.viewer.setVisibility(View.GONE);
+            holder.counterTv.setVisibility(View.GONE);
+            /*RelativeLayout.LayoutParams params= new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.
+                    WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.addRule(RelativeLayout.BELOW, R.id.note);
+            params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM,false);
+            holder.postImage.setLayoutParams(params);
+
+             */
 
         }
         else {
@@ -158,7 +181,7 @@ public class PoolAdapter extends RecyclerView.Adapter<PoolAdapter.MyViewHolder> 
         ;
         ;
         //posts(holder);
-        holder.relative.setOnClickListener(new View.OnClickListener() {
+        holder.inviteTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, Messaging.class);
@@ -168,12 +191,16 @@ public class PoolAdapter extends RecyclerView.Adapter<PoolAdapter.MyViewHolder> 
 
         });
 
-        holder.counterTv.setOnClickListener(v -> {
+       holder.counterTv.setOnClickListener(v -> {
+           DatabaseReference mDatabase=FirebaseDatabase.getInstance().getReference("Post");
+
+           String key = mDatabase.child("Posts").push().getKey();
 //            Toast.makeText(mContext,"Pool toast", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(mContext, Comments.class);
             intent.putExtra("friendsId", model.getUserid());
             intent.putExtra("phone", model.getPhone());
             intent.putExtra("note", model.getMessage());
+            intent.putExtra("pushId",key);
             mContext.startActivity(intent);
         });
 
@@ -229,11 +256,11 @@ public class PoolAdapter extends RecyclerView.Adapter<PoolAdapter.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView usernameTv, phoneTv, clubTv, nationalTv, noteTv, counterTv;
+        public TextView usernameTv, phoneTv, clubTv, nationalTv, noteTv, counterTv,inviteTv;
         public TextView openMessaging, picMessage;
         public ImageView accountimag;
         public ImageView postImage;
-        public RelativeLayout relative;
+        public RelativeLayout relativ;
         public Button notification;
         public CircularImageView poolImage;
         public CardView viewer;
@@ -241,14 +268,15 @@ public class PoolAdapter extends RecyclerView.Adapter<PoolAdapter.MyViewHolder> 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            relative = itemView.findViewById(R.id.myRelativePA);
+
             usernameTv = itemView.findViewById(R.id.username);
             viewer=itemView.findViewById(R.id.imagerh);
+            inviteTv=itemView.findViewById(R.id.invite);
             phoneTv = itemView.findViewById(R.id.phone);
             clubTv = itemView.findViewById(R.id.club);
             noteTv = itemView.findViewById(R.id.note);
           //  nationalTv = itemView.findViewById(R.id.national);
-            counterTv = itemView.findViewById(R.id.counter);
+            counterTv = itemView.findViewById(R.id.Ccounter);
             accountimag=itemView.findViewById(R.id.imager);
 
 

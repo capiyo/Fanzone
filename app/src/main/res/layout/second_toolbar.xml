@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
 	android:id="@+id/secondToolbar"
-    android:background="@color/best">
+    android:background="@drawable/tooler">
 	<RelativeLayout
 
 		xmlns:app="http://schemas.android.com/apk/res-auto"

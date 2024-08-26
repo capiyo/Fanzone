@@ -4,6 +4,7 @@ package ke.co.capiyo.fanzone.Adapters;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +42,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.MyViewHolder
     private DatabaseReference mUserReference;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
+    public Typeface tf;
 
 
     public GamesAdapter(Context context, List<GamesModel> modela) {
@@ -55,6 +57,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.MyViewHolder
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.games_items, parent, false);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        tf= Typeface.createFromAsset(mContext.getAssets(), "fonts/Sedan-Regular.ttf");
         return new MyViewHolder(view);
 
     }
@@ -63,6 +66,8 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final GamesModel games = modela.get(position);
+        holder.awayTeam.setTypeface(tf);
+        holder.homeTeam.setTypeface(tf);
         // gameId=games.getGameId();
         final String homeTeam = games.getHomeTeam();
         final String awayTeam = games.getAwayTeam();

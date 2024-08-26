@@ -101,16 +101,7 @@ public class Archive extends Fragment {
                          checker=true;
                              //emptyCard.setVisibility(View.VISIBLE);
                              //Display Empty Card view
-                           if(checker){
-                               emptyCard.setVisibility(View.GONE);
-
-                           }
-                           else {
-                               emptyCard.setVisibility(View.VISIBLE);
-                           }
-
-
-
+                      ///  emptyCard.setVisibility(View.GONE);
 
 
                     }

@@ -42,6 +42,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import ke.co.capiyo.fanzone.Model.AccessToken;
@@ -60,6 +61,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -100,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressDialog mProgressDialog;
    public   int counter=0;
     ArrayList<String> chats;
+    private AppViewModela timeTableViewModel;
 
     @Override
     protected void onStart() {
@@ -144,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                    // checkNewMessage();
 
 
-                 getArray();
+                // getArray();
 
 
 
@@ -223,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
         viewpagerAdapter.addFragments(new Games(), "Games");
         viewpagerAdapter.addFragments(new Pending(), "Pledged");
 //        viewpagerAdapter.addFragments(new Discover(), "Reels");
-        viewpagerAdapter.addFragments(new Archive(), "Archive");
+        //viewpagerAdapter.addFragments(new Archive(), "Archive");
 
         viewPager.setAdapter(viewpagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -283,6 +286,15 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.exists()){
+                         timeTableViewModel = new ViewModelProvider(MainActivity.this).get(AppViewModela.class);
+                        // timeTableViewModel.getData().observe(MainActivity.this, hisId -> {
+                             timeTableViewModel.setNameData(lastname);
+
+
+                            // update UI
+                    //    });
+                         //timeTableViewModel.setNameData(lastname);
+                      //  Toast.makeText(MainActivity.this,lastname,Toast.LENGTH_LONG).show();
                         openSheet(new Search());
 
                         //Main Activity is supposed to set value
@@ -290,7 +302,8 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                     else {
-                        Toast.makeText(MainActivity.this, "No such name in our  Systems", Toast.LENGTH_SHORT).show();
+
+                      Toast.makeText(MainActivity.this, "No such name in our  Systems", Toast.LENGTH_SHORT).show();
 
                     }
 

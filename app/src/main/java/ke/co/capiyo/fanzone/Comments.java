@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +24,7 @@ import ke.co.capiyo.fanzone.Models.PoolModel;
 
 import ke.co.capiyo.fanzone.R;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -42,13 +45,14 @@ public class Comments extends AppCompatActivity {
     public TextView mUsername, phone, mTime, sendComment, openGallery, noteTextTV;
 
     public Intent intent;
-    public String gameId, comments, phoneNumber, noteText, username;
+    public String gameId, comments, phoneNumber, noteText, username,pushId;
     public EditText replyComment;
     public FirebaseUser firebaseUser;
 
     public RecyclerView commentsRecyclerView;
     public CommentsAdapter commentsAdapter;
     public List<CommentsMod> models;
+    public  DatabaseReference commentsRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +79,8 @@ public class Comments extends AppCompatActivity {
         gameId = extras.getString("friendsId");
         phoneNumber = extras.getString("phone");
         noteText = extras.getString("note");
-
+        pushId=extras.getString("pushId");
+        Toast.makeText(this, pushId, Toast.LENGTH_SHORT).show();
 
 //        System.out.println("game: "+gameId);
 //        System.out.println("Phone: "+ phoneNumber);
@@ -101,33 +106,36 @@ public class Comments extends AppCompatActivity {
         commentsRecyclerView.setLayoutManager(linearLayoutManager);
 
         models = new ArrayList<>();
-
-
+        commentsRef = FirebaseDatabase.getInstance().getReference("Comments");
         // set the note in the TV
         noteTextTV.setText(noteText);
 
-        this.readMessages();
+      readMessages();
 
     }
 
     private void readMessages() {
-        DatabaseReference commentsRef = FirebaseDatabase.getInstance().getReference("Comments");
+
+
         commentsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                models.clear();
+               // models.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     CommentsMod myModel = dataSnapshot.getValue(CommentsMod.class);
                     assert myModel != null;
-                    if (myModel.getGameId().equals(gameId)) {
-                        models.add(myModel);
+                    Toast.makeText(Comments.this, "Heloooo baby", Toast.LENGTH_SHORT).show();
 
+                    //models.add(myModel);
                     }
+
                     commentsAdapter = new CommentsAdapter(Comments.this, models);
                     commentsRecyclerView.setAdapter(commentsAdapter);
+                commentsRecyclerView.addItemDecoration(new DividerItemDecoration(Comments.this, DividerItemDecoration.HORIZONTAL));
 
 
-                }
+
+
             }
 
             @Override
@@ -137,12 +145,14 @@ public class Comments extends AppCompatActivity {
         });
 
 
+
+
     }
 
     private void sendComments() {
         comments = replyComment.getText().toString().trim();
         if (TextUtils.isEmpty(comments)) {
-            Toast.makeText(Comments.this, "Please enter  Your comment", Toast.LENGTH_LONG).show();
+            Toast.makeText(Comments.this, "Write comment", Toast.LENGTH_LONG).show();
         } else {
 
 
@@ -152,16 +162,15 @@ public class Comments extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 hashMap.put("time", LocalDateTime.now().toString());
             }
-            hashMap.put("gameId", gameId);
             hashMap.put("comments", comments);
             hashMap.put("username", username);
 
-            DatabaseReference commentsRef = FirebaseDatabase.getInstance().getReference("Comments");
+            DatabaseReference commentsRef = FirebaseDatabase.getInstance().getReference("Comments").child(pushId);
             commentsRef.push().setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
                     replyComment.setText("");
-                    updateComments(gameId);
+                  //  updateComments(pushId);
                 }
             });
 
@@ -205,11 +214,11 @@ public class Comments extends AppCompatActivity {
 
     }
 
-    public void updateComments(String gameId) {
-        final DatabaseReference gamesRef = FirebaseDatabase.getInstance().getReference("Games");
-        Query query = gamesRef.orderByChild("gameId").equalTo(gameId);
+    public void updateComments(String pushId) {
+        final DatabaseReference  commentsRef = FirebaseDatabase.getInstance().getReference("Posts").child(pushId);
 
-        query.addListenerForSingleValueEvent((new ValueEventListener() {
+
+         commentsRef.addListenerForSingleValueEvent((new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -247,6 +256,7 @@ public class Comments extends AppCompatActivity {
 
 
     }
+
 
 
     // get Image url and Captions

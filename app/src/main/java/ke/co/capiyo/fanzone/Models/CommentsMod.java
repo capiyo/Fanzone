@@ -2,7 +2,6 @@ package ke.co.capiyo.fanzone.Models;
 
 public class CommentsMod {
     private String senderId;
-    private String gameId;
     private String comments;
     private String statusUrl;
     private String time;
@@ -12,18 +11,15 @@ public class CommentsMod {
 
     }
 
-    public CommentsMod(String senderId, String gameId, String messages, String statusUrl, String time, String username) {
+    public CommentsMod(String senderId, String messages, String statusUrl, String time, String username) {
         this.senderId = senderId;
-        this.gameId = gameId;
         this.comments = messages;
         this.statusUrl = statusUrl;
         this.time = time;
         this.username = username;
     }
 
-    public String getGameId() {
-        return gameId;
-    }
+
 
     public String getUsername() {
         return username;

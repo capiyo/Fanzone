@@ -113,7 +113,7 @@ public class Pending extends Fragment {
 						PendingModel model=dataSnapshot.getValue(PendingModel.class);
 						assert model != null;
 
-						if(model.getFinisherId().equals("")){
+						if(model.getFinisherId().isEmpty()){
 						modela.add(model);
 
 
